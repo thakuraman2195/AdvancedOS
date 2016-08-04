@@ -16,15 +16,16 @@
     Method	                                            Description
      public InputStream getInputStream()	returns the InputStream attached with this socket.
      public OutputStream getOutputStream()	returns the OutputStream attached with this socket.
-     public synchronized void close()	closes this socket
+     public synchronized void close()	    closes this socket
     ```
      
  ### ServerSocket class
 * The ServerSocket class can be used to create a server socket. This object is used to establish communication with the clients.
 * Important methods
+
     ```
-    Method	                            Description
-     public Socket accept()	returns the socket and establish a connection between server and client.
+    Method	                                            Description
+     public Socket accept()	            returns the socket and establish a connection between server and client.
      public synchronized void close()	closes the server socket.
     ```
 
