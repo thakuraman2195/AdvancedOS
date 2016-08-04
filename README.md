@@ -7,6 +7,7 @@
 * The client in socket programming must know two information:
     IP Address of Server, and
     Port number.
+    
 ### Socket class
 * A socket is simply an endpoint for communications between the machines. The Socket class can be used to create a socket.
 * Important methods
