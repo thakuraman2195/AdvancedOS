@@ -13,7 +13,8 @@ class Server {
     
         while(!str.equals("stop")){  
             str=din.readUTF();  
-            System.out.println("client says: "+str);  
+            System.out.println("client says: "+str);
+            System.out.print("Server message : ");  
             str2=br.readLine();  
             dout.writeUTF(str2);  
             dout.flush();  
