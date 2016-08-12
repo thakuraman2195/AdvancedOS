@@ -1,11 +1,12 @@
 ### Program to implement multi programming
 
-    * Assumptions
-        1. All the processes arrive at time 0
-        2. I/O Burst can have infinite threads
-        
+* Assumptions
 
-    * Sample run 
+    1. All the processes arrive at time 0
+    2. I/O Burst can have infinite threads
+
+
+* Sample run 
 
     ```
     Number of process : 4
