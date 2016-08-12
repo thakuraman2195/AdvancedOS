@@ -8,12 +8,46 @@ bool check(vector<int> &CpuBurst){
     }
     return true;
 }
+bool isalone(vector<int> &CpuBurst){
+    int c=0;
+    for(int i=0;i<CpuBurst.size();i++){
+        if(CpuBurst[i]!=0){
+            c++;
+        }
+    }
+    return c==1;
+}
+void compute(vector<int> &waiting, int ct, vector<int> &CpuBurst, int index){
+    for(int i=0; i<waiting.size() ; i++){
+        if(i!=index){
+            if(CpuBurst[i]!=0){
+                if(CpuBurst[index]<ct){
+                    waiting[i]+=CpuBurst[index];
+                } else{
+                    waiting[i]+=ct;
+                }
+            }
+        }
+    }
+}
+void Calculatewait(vector<int> &waiting){
+    int totalwait=0;
+    double averagewait=0.0;
+    for(int i=0;i<waiting.size();i++){
+        totalwait+=waiting[i];
+        cout<<"Process P["<<i+1<<"]\thas wait time =\t"<<waiting[i]<<endl;
+    }
+    cout<<"Total wait : "<<totalwait<<endl;
+    averagewait=((double) totalwait)/waiting.size();
+    cout<<"Average wait : "<<averagewait<<endl;
+}
 int main(){
     int N;
     cout<<"Number of process : ";
     cin>>N;
     vector<int> CpuBurst;
     vector<int> IOBurst;
+    vector<int> waiting(N,0);
     for(int i=0;i<N;i++){
         int cpu,io;
         cout<<"Enter Cpu Time for P["<<i+1<<"] : ";
@@ -31,6 +65,10 @@ int main(){
             break;
         }
         for(int i=0;i<N;i++){
+            if(!isalone(CpuBurst))
+                if(CpuBurst[i]!=0)
+                    compute(waiting, ct, CpuBurst, i);
+
             if(CpuBurst[i]>ct){
                 CpuBurst[i] = CpuBurst[i] - ct;
                 cout<<"P["<<i+1<<"]"<<"\t=\t"<<ct<<"\tCPU\t\n";
@@ -43,6 +81,8 @@ int main(){
             }
         }
     }
+    Calculatewait(waiting);
+    waiting.clear();
     CpuBurst.clear();
     IOBurst.clear();
     return 0;
