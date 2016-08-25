@@ -4,14 +4,14 @@ public class sjrf {
  {
   BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
       int n;
-      System.out.print(" enter the number of Processes: ");
+      System.out.print("Please enter the number of Processes: ");
        n = Integer.parseInt(br.readLine());
        int proc[][] = new int[n + 1][4];//proc[][0] is the AT array,[][1] - RT,[][2] - WT,[][3] - TT
        for(int i = 1; i <= n; i++)
        {
-      System.out.print(" enter the Arrival Time for Process " + i + ": ");
+      System.out.print("Please enter the Arrival Time for Process " + i + ": ");
       proc[i][0] = Integer.parseInt(br.readLine());
-      System.out.print(" enter the Burst Time for Process " + i + ": ");
+      System.out.print("Please enter the Burst Time for Process " + i + ": ");
       proc[i][1] = Integer.parseInt(br.readLine());
      }
        System.out.println();
@@ -60,7 +60,7 @@ public class sjrf {
         }
         else if(j == sel_proc)//This is a special case in which the process has been assigned CPU and has completed its execution
          proc[j][3]++;
-       }Please             
+       }
       }
       
       //Printing the Time Chart
@@ -87,7 +87,7 @@ public class sjrf {
      for(int i = 1; i <= n; i++)
      {
       System.out.printf("%d\t%2dms\t%2dms",i,proc[i][2],proc[i][3]);
-      SystPleaseem.out.println();
+      System.out.println();
      }
      
      System.out.println();
