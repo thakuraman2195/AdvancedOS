@@ -47,7 +47,7 @@ int main(){
     cin>>N;
     vector<int> CpuBurst;
     vector<int> IOBurst;
-    vector<int> waiting(N,0);
+    vector<int> waiting(N,0),tat(N,0);
     for(int i=0;i<N;i++){
         int cpu,io;
         cout<<"Enter Cpu Time for P["<<i+1<<"] : ";
@@ -81,6 +81,12 @@ int main(){
             }
         }
     }
+    double tatime=0.0;
+    for(int i=0;i<n;i++){
+        tat[i]=waiting[i]+IOBurst[i]+CpuBurst[i];
+        tattime+=(double)tat[i];
+    }
+    cout<<"Average Turn Around time : "<<(tat/n)<<endl;
     Calculatewait(waiting);
     waiting.clear();
     CpuBurst.clear();
