@@ -81,13 +81,14 @@ int main(){
             }
         }
     }
-    double tatime=0.0;
+    Calculatewait(waiting);
+    double tattime=0.0;
     for(int i=0;i<N;i++){
         tat[i]=waiting[i]+IOBurst[i]+CpuBurst[i];
         tattime+=(double)tat[i];
     }
-    cout<<"Average Turn Around time : "<<(tatime/N)<<endl;
-    Calculatewait(waiting);
+    cout<<"Average Turn Around time : "<<(tattime/N)<<endl;
+    tat.clear();
     waiting.clear();
     CpuBurst.clear();
     IOBurst.clear();
