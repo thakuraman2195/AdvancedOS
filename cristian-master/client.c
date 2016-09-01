@@ -184,7 +184,11 @@ int calcular_desviacion_absoluta (long *sgs, long *usgs)
 	{
 		if (*usgs > 0)
 		{
-			printf("adelantado.");
+			printf("adelantado."); double tattime=0.0;
+    for(int i=0;i<N;i++){
+        tat[i]=waiting[i]+IOBurst[i]+CpuBurst[i];
+        tattime+=(double)tat[i];
+    }
 			return(1);
 		}
 		else if (*usgs == 0)

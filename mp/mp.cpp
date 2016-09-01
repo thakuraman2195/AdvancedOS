@@ -45,7 +45,7 @@ int main(){
     int N;
     cout<<"Number of process : ";
     cin>>N;
-    vector<int> CpuBurst;
+    vector<int> CpuBurst, temp;
     vector<int> IOBurst;
     vector<int> waiting(N,0),tat(N,0);
     for(int i=0;i<N;i++){
@@ -55,6 +55,7 @@ int main(){
         cout<<"Enter I/O time for P["<<i+1<<"] : ";
         cin>>io;
         CpuBurst.push_back(cpu);
+        temp.push_back(cpu);
         IOBurst.push_back(io);
     }
     int ct;
@@ -84,7 +85,7 @@ int main(){
     Calculatewait(waiting);
     double tattime=0.0;
     for(int i=0;i<N;i++){
-        tat[i]=waiting[i]+IOBurst[i]+CpuBurst[i];
+        tat[i]=waiting[i]+IOBurst[i]+temp[i];
         tattime+=(double)tat[i];
     }
     cout<<"Average Turn Around time : "<<(tattime/N)<<endl;
